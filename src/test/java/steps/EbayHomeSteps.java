@@ -37,8 +37,8 @@ public class EbayHomeSteps {
 	private void createWebDriver() {
 		final ChromeDriverService service = (new ChromeDriverService.Builder()).build();
 		final ChromeOptions options = new ChromeOptions();
-		options.addArguments(List.of("ignore-certificate-errors", "disable-extensions",
-				"no-sandbox", "disable-dev-shm-usage"));
+		options.addArguments(List.of("headless", "disable-gpu", "ignore-certificate-errors", "disable-extensions",
+				"no-sandbox", "disable-dev-shm-usage", "remote-debugging-port=9222"));
 		webDriver = new ChromeDriver(service, options);
 		webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(IMPLICIT_WAIT));
 		webDriver.manage().window().maximize();
