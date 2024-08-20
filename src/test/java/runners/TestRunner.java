@@ -13,6 +13,9 @@ import io.cucumber.core.options.Constants;
 @SelectClasspathResource("steps")
 @ConfigurationParameter(key = Constants.FEATURES_PROPERTY_NAME, value = "src/test/resources/features/")
 @ConfigurationParameter(key = Constants.GLUE_PROPERTY_NAME, value = "steps,hooks")
+@ConfigurationParameter(key = Constants.PLUGIN_PROPERTY_NAME, value = "pretty,html:test-results/Report1.html,json:test-results/Report2.json,junit:test-results/Report3.xml")
+@ConfigurationParameter(key = Constants.EXECUTION_DRY_RUN_PROPERTY_NAME, value = "false")
+@ConfigurationParameter(key = Constants.SNIPPET_TYPE_PROPERTY_NAME, value = "camelcase")
 @SuiteDisplayName("BDD Tests")
 class TestRunner {
 
