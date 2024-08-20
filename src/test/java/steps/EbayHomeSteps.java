@@ -10,17 +10,18 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import lombok.extern.slf4j.Slf4j;
-import utils.WebDriverUtils;
 
 @Slf4j
 public class EbayHomeSteps {
+	
+	public EbayHomeSteps(CommonSteps commonSteps) {
+		webDriver = commonSteps.getWebDriver();
+	}
 
 	private WebDriver webDriver;
 
 	@Given("I am on Ebay Home page")
 	public void iAmOnEbayHomePage() {
-		webDriver = WebDriverUtils.createWebDriver();
-
 		webDriver.get(EbayConstants.HOME_PAGE_URL);
 
 		log.info("I am on Ebay Home page");
@@ -36,7 +37,6 @@ public class EbayHomeSteps {
 	public void iNaviagateToTheAdvancedSearchPage() {
 		String currentURL = webDriver.getCurrentUrl();
 		assertEquals(EbayConstants.ADVANCED_SEARCH_PAGE_URL, currentURL);
-		webDriver.quit();
 		log.info("I naviagate to the Advanced Search page");
 	}
 	
@@ -61,7 +61,6 @@ public class EbayHomeSteps {
 		
 		assertTrue(result >= minCount);
 		
-		webDriver.quit();
 	    log.info("I confirm at least {} results", minCount.toString());
 	}
 }

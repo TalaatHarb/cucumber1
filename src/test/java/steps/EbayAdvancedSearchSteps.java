@@ -9,15 +9,17 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import lombok.extern.slf4j.Slf4j;
-import utils.WebDriverUtils;
 
 @Slf4j
 public class EbayAdvancedSearchSteps {
 	private WebDriver webDriver;
+	
+	public EbayAdvancedSearchSteps(CommonSteps commonSteps) {
+		webDriver = commonSteps.getWebDriver();
+	}
 
 	@Given("I am on Advanced search page")
 	public void iAmOnAdvancedSearchPage() {
-		webDriver = WebDriverUtils.createWebDriver();
 		webDriver.get(EbayConstants.ADVANCED_SEARCH_PAGE_URL);
 		
 		log.info("I am on Advanced search page");
@@ -35,7 +37,6 @@ public class EbayAdvancedSearchSteps {
 		String currentURL = webDriver.getCurrentUrl();
 		assertEquals(EbayConstants.HOME_PAGE_URL, currentURL);
 		
-		webDriver.quit();
 		log.info("I naviagate to the Home page");
 	}
 }
