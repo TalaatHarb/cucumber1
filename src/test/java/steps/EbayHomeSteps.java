@@ -1,6 +1,7 @@
 package steps;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -37,5 +38,30 @@ public class EbayHomeSteps {
 		assertEquals(EbayConstants.ADVANCED_SEARCH_PAGE_URL, currentURL);
 		webDriver.quit();
 		log.info("I naviagate to the Advanced Search page");
+	}
+	
+	@When("I search for {string}")
+	public void iSearchForItem(String item) {
+		var searchBox = webDriver.findElement(By.xpath("//*[@id=\"gh-ac\"]"));
+		searchBox.click();
+		searchBox.sendKeys(item);
+		
+		var searchButton = webDriver.findElement(By.xpath("//*[@id=\"gh-btn\"]"));
+		searchButton.click();
+		
+		log.info("I search for {string}", item);
+	}
+	@Then("I confirm at least {int} results")
+	public void iConfirmResultsCount(Integer minCount) {
+		
+		var resultsSpan = webDriver.findElement(By.xpath("//*[@id=\"mainContent\"]/div[1]/div/div[1]/div[1]/div[1]/h1/span[1]"));
+		int result = Integer.parseInt(resultsSpan.getText().replace(",", ""));
+		
+		log.info("Found {} result", result);
+		
+		assertTrue(result >= minCount);
+		
+		webDriver.quit();
+	    log.info("I confirm at least {} results", minCount.toString());
 	}
 }
