@@ -6,7 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import lombok.extern.slf4j.Slf4j;
@@ -19,13 +18,6 @@ public class EbayHomeSteps {
 	}
 
 	private WebDriver webDriver;
-
-	@Given("I am on Ebay Home page")
-	public void iAmOnEbayHomePage() {
-		webDriver.get(EbayConstants.HOME_PAGE_URL);
-
-		log.info("I am on Ebay Home page");
-	}
 
 	@When("I click on Advanced Link")
 	public void iClickOnAdvancedLink() {
@@ -51,6 +43,7 @@ public class EbayHomeSteps {
 		
 		log.info("I search for {string}", item);
 	}
+	
 	@Then("I confirm at least {int} results")
 	public void iConfirmResultsCount(Integer minCount) {
 		

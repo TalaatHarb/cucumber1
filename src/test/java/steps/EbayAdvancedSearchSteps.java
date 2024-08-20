@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import lombok.extern.slf4j.Slf4j;
@@ -16,13 +15,6 @@ public class EbayAdvancedSearchSteps {
 	
 	public EbayAdvancedSearchSteps(CommonSteps commonSteps) {
 		webDriver = commonSteps.getWebDriver();
-	}
-
-	@Given("I am on Advanced search page")
-	public void iAmOnAdvancedSearchPage() {
-		webDriver.get(EbayConstants.ADVANCED_SEARCH_PAGE_URL);
-		
-		log.info("I am on Advanced search page");
 	}
 
 	@When("I click on Ebay logo")
