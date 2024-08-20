@@ -2,6 +2,8 @@ package steps;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -22,6 +24,8 @@ public class EbayHomeSteps {
 	@Given("I am on Ebay Home page")
 	public void iAmOnEbayHomePage() {
 		webDriver = new ChromeDriver();
+		webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10L));
+		webDriver.manage().window().maximize();
 		
 		webDriver.get(HOME_PAGE_URL);
 		
@@ -38,6 +42,7 @@ public class EbayHomeSteps {
 	public void iNaviagateToTheAdvancedSearchPage() {
 		String currentURL = webDriver.getCurrentUrl();
 		assertEquals(ADVANCED_SEARCH_PAGE_URL, currentURL);
+		webDriver.close();
 		log.info("I naviagate to the Advanced Search page");
 	}
 }
