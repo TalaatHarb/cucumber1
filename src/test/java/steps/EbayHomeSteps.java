@@ -10,16 +10,16 @@ public class EbayHomeSteps {
 
 	@Given("I am on Ebay Home page")
 	public void iAmOnEbayHomePage() {
-		log.info("Opening Ebay Home page");
+		log.info("I am on Ebay Home page");
 	}
 
 	@When("I click on Advanced Link")
 	public void iClickOnAdvancedLink() {
-		log.info("Clicking on advanced link");
+		log.info("I click on Advanced Link");
 	}
 
 	@Then("I naviagate to the Advanced Search page")
 	public void iNaviagateToTheAdvancedSearchPage() {
-		log.info("Confirm navigating to Advanced search page");
+		log.info("I naviagate to the Advanced Search page");
 	}
 }
