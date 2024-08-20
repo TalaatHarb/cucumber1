@@ -22,6 +22,11 @@ public class EbayHomeSteps {
 	private static final long IMPLICIT_WAIT = 60L;
 	private static final String HOME_PAGE_URL = "https://www.ebay.com/";
 	private static final String ADVANCED_SEARCH_PAGE_URL = "https://www.ebay.com/sch/ebayadvsearch";
+	private static final List<String> CHROME_ARGUMENTS = List.of("ignore-certificate-errors", "disable-extensions",
+			"window-size=1920,1080", "no-sandbox", "disable-dev-shm-usage");
+
+	private static final List<String> HEADLESS_CHROME_ARGUMENTS = List.of("headless", "disable-gpu",
+			"remote-debugging-port=9222");
 
 	private WebDriver webDriver;
 
@@ -37,8 +42,14 @@ public class EbayHomeSteps {
 	private void createWebDriver() {
 		final ChromeDriverService service = (new ChromeDriverService.Builder()).build();
 		final ChromeOptions options = new ChromeOptions();
-		options.addArguments(List.of("headless", "disable-gpu", "ignore-certificate-errors", "disable-extensions",
-				"no-sandbox", "disable-dev-shm-usage", "remote-debugging-port=9222"));
+		options.addArguments(CHROME_ARGUMENTS);
+
+		String os = System.getProperty("os.name");
+		log.info("OS: {}", os);
+		if (!os.contains("Windows")) {
+			options.addArguments(HEADLESS_CHROME_ARGUMENTS);
+		}
+
 		webDriver = new ChromeDriver(service, options);
 		webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(IMPLICIT_WAIT));
 		webDriver.manage().window().maximize();
