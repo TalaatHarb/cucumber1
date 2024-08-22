@@ -29,6 +29,26 @@ public class CommonSteps {
 		webDriver.quit();
 	}
 	
+	@Before("@Navigation")
+	public void navigationScenariosSetup() {
+		log.info("Navigation scenario");
+	}
+	
+	@Before("@Search")
+	public void searchScenariosSetup() {
+		log.info("Search scenario");
+	}
+	
+	@Before("@Home")
+	public void homePageScenariosSetup() {
+		log.info("Home Page scenario");
+	}
+	
+	@Before("@AdvancedSearch")
+	public void advancedSearchPageScenariosSetup() {
+		log.info("Advanced search Page scenario");
+	}
+	
 	@Given("I am on Ebay {string} page")
 	public void iAmOnPage(String pageName) {
 		webDriver.get(PageUtils.mapPageNameToURL(pageName));
