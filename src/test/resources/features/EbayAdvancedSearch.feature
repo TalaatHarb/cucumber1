@@ -1,13 +1,13 @@
 #Author: talaatharb
 Feature: Advanced search page features
 
-  @Navigation
+  @AdvancedSearch @Navigation
   Scenario: Ebay logo
     Given I am on Ebay 'Advanced search' page
     When I click on Ebay logo
     Then I naviagate to the 'Home' page
 
-  @Search
+  @AdvancedSearch @Search
   Scenario: Advanced search
     Given I am on Ebay 'Advanced search' page
     When I do advanced search
