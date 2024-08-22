@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import hooks.GlobalHooks;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import lombok.extern.slf4j.Slf4j;
@@ -12,11 +13,12 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class EbayHomeSteps {
 
-	public EbayHomeSteps(CommonSteps commonSteps) {
-		webDriver = commonSteps.getWebDriver();
+	private final WebDriver webDriver;
+	
+	public EbayHomeSteps(GlobalHooks globalHooks) {
+		webDriver = globalHooks.getWebDriver();
 	}
 
-	private WebDriver webDriver;
 
 	@When("I click on {string} Link")
 	public void iClickOnAdvancedLink(String linkName) {

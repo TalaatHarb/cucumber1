@@ -3,16 +3,18 @@ package steps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import hooks.GlobalHooks;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.When;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class EbayAdvancedSearchSteps {
-	private WebDriver webDriver;
+	
+	private final WebDriver webDriver;
 
-	public EbayAdvancedSearchSteps(CommonSteps commonSteps) {
-		webDriver = commonSteps.getWebDriver();
+	public EbayAdvancedSearchSteps(GlobalHooks globalHooks) {
+		webDriver = globalHooks.getWebDriver();
 	}
 
 	@When("I click on Ebay logo")
