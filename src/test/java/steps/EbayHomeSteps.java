@@ -18,10 +18,10 @@ public class EbayHomeSteps {
 
 	private WebDriver webDriver;
 
-	@When("I click on Advanced Link")
-	public void iClickOnAdvancedLink() {
-		webDriver.findElement(By.linkText("Advanced")).click();
-		log.info("I click on Advanced Link");
+	@When("I click on {string} Link")
+	public void iClickOnAdvancedLink(String linkName) {
+		webDriver.findElement(By.linkText(linkName)).click();
+		log.info("I click on {} Link", linkName);
 	}
 
 	@When("I search for {string}")
