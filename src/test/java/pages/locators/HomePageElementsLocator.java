@@ -9,9 +9,6 @@ import org.openqa.selenium.support.PageFactory;
 
 public class HomePageElementsLocator {
 
-	@FindBy(linkText = "Advanced")
-	public WebElement advancedSearchLink;
-
 	@FindBy(xpath = "//*[@id=\"gh-ac\"]")
 	public WebElement searchBox;
 
@@ -23,9 +20,6 @@ public class HomePageElementsLocator {
 
 	@FindBy(xpath = "//*[@id=\"gh-cat\"]/option")
 	public List<WebElement> categories;
-
-	@FindBy(xpath = "//*[@id=\"mainContent\"]/div[1]/div/div[1]/div[1]/div[1]/h1/span[1]")
-	public WebElement resultsSpan;
 
 	public HomePageElementsLocator(WebDriver webDriver) {
 		PageFactory.initElements(webDriver, this);

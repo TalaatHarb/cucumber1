@@ -12,10 +12,6 @@ public class HomePageActions {
 		this.homePageElements = new HomePageElementsLocator(webDriver);
 	}
 
-	public void clickAdvancedLink() {
-		homePageElements.advancedSearchLink.click();
-	}
-
 	public void enterSearchTerm(String searchTerm) {
 		homePageElements.searchBox.sendKeys(searchTerm);
 	}

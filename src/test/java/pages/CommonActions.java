@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import hooks.GlobalHooks;
@@ -26,5 +27,9 @@ public class CommonActions {
 	
 	public void closeBrowser() {
 		webDriver.quit();
+	}
+	
+	public void clickOnLink(String linkText) {
+		webDriver.findElement(By.linkText(linkText)).click();
 	}
 }
