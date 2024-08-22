@@ -1,14 +1,17 @@
 package hooks;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 import lombok.Getter;
 import utils.WebDriverUtils;
 
 public class GlobalHooks {
-	
+
 	@Getter
 	private WebDriver webDriver;
 
@@ -18,7 +21,16 @@ public class GlobalHooks {
 	}
 
 	@After(order = 100)
-	public void commonTearDown() {
+	public void commonTearDown(Scenario scenario) {
+		takeScreenShotIfFailed(scenario);
+		webDriver.close();
 		webDriver.quit();
+	}
+
+	private void takeScreenShotIfFailed(Scenario scenario) {
+		if (scenario.isFailed()) {
+			var srcBytes = ((TakesScreenshot) webDriver).getScreenshotAs(OutputType.BYTES);
+			scenario.attach(srcBytes, "image/png", scenario.getName());
+		}
 	}
 }

@@ -35,4 +35,4 @@ jobs:
     - name: Install Google Chrome 
       run: chmod +x ./scripts/InstallChrome.sh && ./scripts/InstallChrome.sh 
     - name: Test with Maven
-      run: mvn -B test --file pom.xml
+      run: mvn -B test verify --file pom.xml
