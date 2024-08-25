@@ -98,6 +98,14 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>${maven-surefire-plugins.version}</version>
+				<configuration>
+					<properties>
+						<configurationParameters>
+							cucumber.junit-platform.naming-strategy=long
+							cucumber.execution.parallel.enabled=true
+						</configurationParameters>
+					</properties>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
