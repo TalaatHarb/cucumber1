@@ -13,8 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class WebDriverUtils {
 
-	public static final List<String> HEADLESS_CHROME_ARGUMENTS = List.of("headless", "disable-gpu",
-	"remote-debugging-port=9222");
+	public static final List<String> HEADLESS_CHROME_ARGUMENTS = List.of("headless", "disable-gpu");
 	public static final long IMPLICIT_WAIT = 10L;
 	public static final List<String> CHROME_ARGUMENTS = List.of("ignore-certificate-errors", "disable-extensions",
 	"window-size=1920,1080", "no-sandbox", "disable-dev-shm-usage");
