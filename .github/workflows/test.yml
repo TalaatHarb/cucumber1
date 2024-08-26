@@ -34,13 +34,13 @@ jobs:
         cache: maven
     - name: Install Google Chrome 
       run: chmod +x ./scripts/InstallChrome.sh && ./scripts/InstallChrome.sh
-    - name: Install Firefox 
-      run: chmod +x ./scripts/InstallFirefox.sh && ./scripts/InstallFirefox.sh 
     - name: Install Edge
       run: chmod +x ./scripts/InstallEdge.sh && ./scripts/InstallEdge.sh      
+    - name: Install Firefox 
+      run: chmod +x ./scripts/InstallFirefox.sh && ./scripts/InstallFirefox.sh 
     - name: Test with Maven in Chrome
       run: mvn -B test verify -Dbrowser=chrome --file pom.xml
-    - name: Test with Maven in Firefox
-      run: mvn -B test verify -Dbrowser=firefox --file pom.xml 
     - name: Test with Maven in Edge
       run: mvn -B test verify -Dbrowser=edge --file pom.xml
+    - name: Test with Maven in Firefox
+      run: mvn -B test verify -Dbrowser=firefox --file pom.xml 
