@@ -86,6 +86,7 @@ public class WebDriverUtils {
 		String os = System.getProperty("os.name");
 		log.debug("OS: {}", os);
 		if (!os.contains("Windows")) {
+			log.debug("Running in headless mode");
 			options.addArguments(HEADLESS_BROWSER_ARGUMENTS.stream().map(s -> "--" + s).toList());
 		}
 
