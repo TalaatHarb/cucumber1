@@ -23,8 +23,8 @@ public class GlobalHooks {
 	@After(order = 100)
 	public void commonTearDown(Scenario scenario) {
 		takeScreenShotIfFailed(scenario);
-		webDriver.close();
 		webDriver.quit();
+		webDriver = null;
 	}
 
 	private void takeScreenShotIfFailed(Scenario scenario) {
