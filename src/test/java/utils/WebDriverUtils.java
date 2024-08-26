@@ -81,12 +81,12 @@ public class WebDriverUtils {
 	private static final WebDriver createFirefoxDriver() {
 
 		FirefoxOptions options = new FirefoxOptions();
-		options.addArguments(BROWSER_ARGUMENTS);
+		options.addArguments(BROWSER_ARGUMENTS.stream().map(s -> "--" + s).toList());
 
 		String os = System.getProperty("os.name");
 		log.debug("OS: {}", os);
 		if (!os.contains("Windows")) {
-			options.addArguments(HEADLESS_BROWSER_ARGUMENTS);
+			options.addArguments(HEADLESS_BROWSER_ARGUMENTS.stream().map(s -> "--" + s).toList());
 		}
 
 		WebDriver direfoxDriver = new FirefoxDriver(options);
