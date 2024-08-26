@@ -23,7 +23,7 @@ public class WebDriverUtils {
 	public static final String FIREFOX = "firefox";
 	public static final String EDGE = "edge";
 	public static final String BROWSER = System.getProperty(BROWSER_PROPERTY, DEFAULT_BROWSER);
-	public static final long IMPLICIT_WAIT = 60L;
+	public static final long IMPLICIT_WAIT = 30L;
 
 	public static final List<String> HEADLESS_BROWSER_ARGUMENTS = List.of("headless", "disable-gpu");
 	public static final List<String> BROWSER_ARGUMENTS = List.of("disable-dev-shm-usage", "disable-extensions",
