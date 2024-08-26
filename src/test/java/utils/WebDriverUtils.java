@@ -25,12 +25,9 @@ public class WebDriverUtils {
 	public static final String BROWSER = System.getProperty(BROWSER_PROPERTY, DEFAULT_BROWSER);
 	public static final long IMPLICIT_WAIT = 30L;
 
-	public static final List<String> HEADLESS_CHROME_ARGUMENTS = List.of("headless", "disable-gpu");
-	public static final List<String> CHROME_ARGUMENTS = List.of("disable-dev-shm-usage", "disable-extensions",
+	public static final List<String> HEADLESS_BROWSER_ARGUMENTS = List.of("headless", "disable-gpu");
+	public static final List<String> BROWSER_ARGUMENTS = List.of("disable-dev-shm-usage", "disable-extensions",
 			"window-size=1920,1080", "no-sandbox", "ignore-certificate-errors");
-
-	public static final List<String> HEADLESS_FIREFOX_ARGUMENTS = List.of("--headless");
-	public static final List<String> FIREFOX_ARGUMENTS = List.of("--disable-notifications", "--start-maximized");
 
 	public static final WebDriver createWebDriver() {
 		log.debug("Openning {}", BROWSER);
@@ -48,12 +45,12 @@ public class WebDriverUtils {
 	private static final WebDriver createChromeDriver() {
 		final ChromeDriverService service = (new ChromeDriverService.Builder()).build();
 		final ChromeOptions options = new ChromeOptions();
-		options.addArguments(CHROME_ARGUMENTS);
+		options.addArguments(BROWSER_ARGUMENTS);
 
 		String os = System.getProperty("os.name");
 		log.debug("OS: {}", os);
 		if (!os.contains("Windows")) {
-			options.addArguments(HEADLESS_CHROME_ARGUMENTS);
+			options.addArguments(HEADLESS_BROWSER_ARGUMENTS);
 		}
 
 		ChromeDriver chromeDriver = new ChromeDriver(service, options);
@@ -62,16 +59,16 @@ public class WebDriverUtils {
 
 		return chromeDriver;
 	}
-	
+
 	private static final WebDriver createEdgeDriver() {
 		final EdgeDriverService service = (new EdgeDriverService.Builder()).build();
 		final EdgeOptions options = new EdgeOptions();
-		options.addArguments(CHROME_ARGUMENTS);
+		options.addArguments(BROWSER_ARGUMENTS);
 
 		String os = System.getProperty("os.name");
 		log.debug("OS: {}", os);
 		if (!os.contains("Windows")) {
-			options.addArguments(HEADLESS_CHROME_ARGUMENTS);
+			options.addArguments(HEADLESS_BROWSER_ARGUMENTS);
 		}
 
 		EdgeDriver edgeDriver = new EdgeDriver(service, options);
@@ -84,12 +81,12 @@ public class WebDriverUtils {
 	private static final WebDriver createFirefoxDriver() {
 
 		FirefoxOptions options = new FirefoxOptions();
-		options.addArguments(FIREFOX_ARGUMENTS);
+		options.addArguments(BROWSER_ARGUMENTS);
 
 		String os = System.getProperty("os.name");
 		log.debug("OS: {}", os);
 		if (!os.contains("Windows")) {
-			options.addArguments(HEADLESS_FIREFOX_ARGUMENTS);
+			options.addArguments(HEADLESS_BROWSER_ARGUMENTS);
 		}
 
 		WebDriver direfoxDriver = new FirefoxDriver(options);
