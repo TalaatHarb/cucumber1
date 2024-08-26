@@ -29,7 +29,7 @@ public class WebDriverUtils {
 	public static final List<String> CHROME_ARGUMENTS = List.of("disable-dev-shm-usage", "disable-extensions",
 			"window-size=1920,1080", "no-sandbox", "ignore-certificate-errors");
 
-	public static final List<String> HEADLESS_FIREFOX_ARGUMENTS = List.of("headless");
+	public static final List<String> HEADLESS_FIREFOX_ARGUMENTS = List.of("--headless");
 	public static final List<String> FIREFOX_ARGUMENTS = List.of("--disable-notifications", "--start-maximized");
 
 	public static final WebDriver createWebDriver() {
