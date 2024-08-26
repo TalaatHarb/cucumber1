@@ -42,5 +42,5 @@ jobs:
       run: mvn -B test verify -Dbrowser=chrome --file pom.xml
     - name: Test with Maven in Edge
       run: mvn -B test verify -Dbrowser=edge --file pom.xml
-    #- name: Test with Maven in Firefox
-    #  run: mvn -B test verify -Dbrowser=firefox --file pom.xml 
+    - name: Test with Maven in Firefox
+      run: mvn -B test verify -Dbrowser=firefox --file pom.xml 
