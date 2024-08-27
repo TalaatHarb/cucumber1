@@ -4,7 +4,6 @@ import java.util.Map;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-import steps.EbayConstants;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class PageUtils {

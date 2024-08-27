@@ -1,4 +1,4 @@
-package steps;
+package utils;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
