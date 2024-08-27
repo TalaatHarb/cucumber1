@@ -2,7 +2,6 @@ package pages.locators;
 
 import java.util.List;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -28,21 +27,10 @@ public class AdvancedSearchPageElementsLocator {
 	@FindBy(tagName = "form")
 	public List<WebElement> forms;
 
+	@FindBy(xpath = "//div[@class='adv-form__actions']//button[@type='submit'][normalize-space()='Search']")
 	public WebElement searchButton;
 
 	public AdvancedSearchPageElementsLocator(WebDriver webDriver) {
 		PageFactory.initElements(webDriver, this);
-
-		searchButton = findSearchButton();
 	}
-
-	private WebElement findSearchButton() {
-		var searchForm = forms.stream().filter(f -> !"gh-f".equals(f.getAttribute("id"))).findFirst();
-		if (searchForm.isPresent()) {
-			return searchForm.get().findElement(By.tagName("button"));
-		} else {
-			return null;
-		}
-	}
-
 }

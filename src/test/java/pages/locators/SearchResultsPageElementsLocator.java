@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class SearchResultsPageElementsLocator {
 	
-	@FindBy(xpath = "//*[@id=\"mainContent\"]/div[1]/div/div[1]/div[1]/div[1]/h1/span[1]")
+	@FindBy(css = "div[class='srp-controls__control srp-controls__count'] span:nth-child(1)")
 	public WebElement resultsSpan;
 	
 	public SearchResultsPageElementsLocator(WebDriver webDriver) {
